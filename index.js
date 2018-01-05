@@ -1,7 +1,6 @@
 // SETUP THE BOT
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const booru = require('booru')
 
 // DEFINE THE PREFIX
 const prefix = "!";
@@ -128,14 +127,6 @@ client.on("message", async message => { // Message handler event.
       
   }
 
-  // BOORU TEST
-  booru.search(site, [tag1, tag2], {limit: 1, random: false})
-  .then(booru.commonfy)
-  .then(images => {
-  //Log the direct link to each image 
-    for (let image of images) {
-      message.channel.send(image.common.file_url)
-    } 
   })
   .catch(err => {
     if (err.name === 'booruError') {
