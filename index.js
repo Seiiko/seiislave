@@ -175,14 +175,14 @@ client.on("message", async message => { // Message handler event.
       return message.reply("You want to fuck someone who doesn't exist? Talk about desperation."); // Send message to channel.
  
     // Fuck the member.
-    if (member.roles.some(r=>["Sei's Slave"].includes(r.name)) && message.author.roles.some(r=>["Kink Goddess"].includes(r.name))) {
+    if (member.roles.some(r=>["Sei's Slave"].includes(r.name)) && message.member.roles.some(r=>["Kink Goddess"].includes(r.name))) {
       message.channel.send(`For sure, my sweet Sei... I'm ready for you. We shall do this... privately. ;3`);
-    } else if (member.roles.some(r=>["Sei's Slave"].includes(r.name)) && message.author.roles.some(r=>["Sly Licker"].includes(r.name))) {
+    } else if (member.roles.some(r=>["Sei's Slave"].includes(r.name)) && message.member.roles.some(r=>["Sly Licker"].includes(r.name))) {
       message.channel.send(`I'll only do it if Sei's a part of it, Sly.`);
     } else if (member.roles.some(r=>["Sei's Slave"].includes(r.name))) {
       message.channel.send(`I'm sorry, sweetie, only Sei can fuck me.`);
     } else {    
-      message.channel.send(`:sweat_drops: | <@!${member.user.id}> and <@!${message.author.id}> are now having some fun. Don't moan too loud!`);
+      message.channel.send(`:sweat_drops: | <@!${member.user.id}> and <@!${message.member.id}> are now having some fun. Don't moan too loud!`);
     }
 
   }
