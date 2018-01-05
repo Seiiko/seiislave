@@ -82,9 +82,9 @@ client.on("message", function(message) {
         
         if(!message.member.roles.some(r=>["Gore Access"].includes(r.name)) ) { // If the user doesn't have the role already. 
             sender.addRole(gore) // Give the message author the role.
-            message.channel.send(":white_check_mark: You now have access to the **gore** channels.") // Send message to channel.
+            message.channel.send(":white_check_mark: | You now have access to the **gore** channels.") // Send message to channel.
         } else { // If the user has the role already.
-            message.channel.send(":skull_crossbones: You obviously already have that role, duh...") // Send message to channel.
+            message.channel.send(":skull_crossbones: | You obviously already have that role, duh...") // Send message to channel.
             
         }
     
@@ -95,9 +95,9 @@ client.on("message", function(message) {
         
         if(!message.member.roles.some(r=>["Scat Access"].includes(r.name)) ) {// If the user doesn't have the role already. 
             sender.addRole(scat) // Give the message author the role.
-            message.channel.send(":white_check_mark: You now have access to the **scat** channels.") // Send message to channel.
+            message.channel.send(":white_check_mark: | You now have access to the **scat** channels.") // Send message to channel.
         } else { // If the user has the role already.
-            message.channel.send(":skull_crossbones: You obviously already have that role, duh...") // Send message to channel.
+            message.channel.send(":skull_crossbones: | You obviously already have that role, duh...") // Send message to channel.
             
         }    
     
@@ -175,7 +175,7 @@ client.on("message", async message => { // Message handler event.
       return message.reply("You want to fuck someone who doesn't exist? Talk about desperation."); // Send message to channel.
  
     // Fuck the member.
-    message.channel.send(`:sweat_drops: <@!${member.user.id}> and <@!${message.author.id}> are now having some fun. Don't moan too loud!`);
+    message.channel.send(`:sweat_drops: | <@!${member.user.id}> and <@!${message.author.id}> are now having some fun. Don't moan too loud!`);
 
   }
   
