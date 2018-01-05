@@ -175,7 +175,7 @@ client.on("message", async message => { // Message handler event.
       return message.reply("You want to fuck someone who doesn't exist? Talk about desperation."); // Send message to channel.
  
     // Fuck the member.
-    message.channel.send(`<@!${member.user.tag}> and <@!${message.author.tag}> are now having some fun. Don't moan too loud!`);
+    message.channel.send(`<@!${member.user.id}> and <@!${message.author.id}> are now having some fun. Don't moan too loud!`);
 
   }
   
