@@ -176,7 +176,13 @@ client.on("message", async message => { // Message handler event.
  
     // Fuck the member.
     if (member.roles.some(r=>["Sei's Slave"].includes(r.name))) {
-      message.channel.send(`I'm sorry, sweetie, only Sei can fuck me.`);
+      if (message.author.roles.some(r=>["Kink Goddess"].includes(r.name))) {
+        message.channel.send(`I'm all yours, sweet Sei... Let's do it... privately. ;3`);
+      } else if (message.author.roles.some(r=>["Sly Licker"].includes(r.name))) {
+        message.channel.send(`Sly, I'm only doing it if Sei's a part of it.`);
+      } else {
+        message.channel.send(`I'm sorry, sweetie, only Sei can fuck me.`);
+      }
 
     } else {
       message.channel.send(`:sweat_drops: | <@!${member.user.id}> and <@!${message.author.id}> are now having some fun. Don't moan too loud!`);
