@@ -175,7 +175,7 @@ client.on("message", async message => { // Message handler event.
       return message.reply("You want to fuck someone who doesn't exist? Talk about desperation."); // Send message to channel.
  
     // Fuck the member.
-    if (member === `<@!${client.id}>`) {
+    if (message.member.roles.some(r=>["Sei's Slave"].includes(r.name))) {
       message.channel.send(`I'm sorry, sweetie, only Sei can fuck me.`);
 
     } else {
