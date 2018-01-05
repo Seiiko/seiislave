@@ -152,7 +152,7 @@ client.on("message", async message => { // Message handler event.
   if(command === "help") { // Check if the command is !help.
       
     //Send a message to the channel.
-    message.channel.send("What do you need help with? I offer blowjobs, titjobs, licking, grabbing, vaginal, anal... Just choose!")
+    message.channel.send("What do you need help with? I offer blowjobs, titjobs, licking, grabbing, vaginal, anal... Just choose! :)")
       
   }
   
