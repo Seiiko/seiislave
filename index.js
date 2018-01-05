@@ -126,24 +126,12 @@ client.on("message", async message => { // Message handler event.
     m.edit(`:ping_pong: | Your ping is ${m.createdTimestamp - message.createdTimestamp}ms.`) // Edit the message to show the user's ping.
       
   }
-
-  })
-  .catch(err => {
-    if (err.name === 'booruError') {
-      //It's a custom error thrown by the package 
-      console.log(err.message)
-    } else {
-      //This means I messed up. Whoops. 
-      console.log(err)
-    }
-
-  })
-
+  
   // HELP COMMAND (TEMPORARY) 
   if(command === "help") { // Check if the command is !help.
       
     //Send a message to the channel.
-    message.channel.send("What do you need help with? I offer blowjobs, titjobs, licking, grabbing, vaginal, anal... Just choose! :)")
+    message.channel.send("What do you need help with? I offer blowjobs, titjobs, licking, grabbing, vaginal, anal... Just choose!")
       
   }
   
@@ -179,7 +167,7 @@ client.on("message", async message => { // Message handler event.
   }
     
     // FUCK COMMAND
-  if(command === "fuck") { // Check if the command is !fuck.
+    if(command === "fuck") { // Check if the command is !fuck.
     
     // Check if there the member is valid.
     let member = message.mentions.members.first(); // Define the member variable.
