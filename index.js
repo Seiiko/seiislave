@@ -123,7 +123,7 @@ client.on("message", async message => { // Message handler event.
     
     // Calculate the user's ping.
     const m = await message.channel.send("And..."); // Temporary message while calculating the ping.
-    m.edit(`Your ping is ${m.createdTimestamp - message.createdTimestamp}ms.`) // Edit the message to show the user's ping.
+    m.edit(`:ping_pong: | Your ping is ${m.createdTimestamp - message.createdTimestamp}ms.`) // Edit the message to show the user's ping.
       
   }
   
