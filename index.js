@@ -1,6 +1,7 @@
 // SETUP THE BOT
 const Discord = require('discord.js');
 const client = new Discord.Client();
+const booru = require('booru')
 
 // DEFINE THE PREFIX
 const prefix = "!";
@@ -126,7 +127,27 @@ client.on("message", async message => { // Message handler event.
     m.edit(`:ping_pong: | Your ping is ${m.createdTimestamp - message.createdTimestamp}ms.`) // Edit the message to show the user's ping.
       
   }
-  
+
+  // BOORU TEST
+  booru.search(site, [tag1, tag2], {limit: 1, random: false})
+  .then(booru.commonfy)
+  .then(images => {
+  //Log the direct link to each image 
+    for (let image of images) {
+      message.channel.send(image.common.file_url)
+    } 
+  })
+  .catch(err => {
+    if (err.name === 'booruError') {
+      //It's a custom error thrown by the package 
+      console.log(err.message)
+    } else {
+      //This means I messed up. Whoops. 
+      console.log(err)
+    }
+
+  })
+
   // HELP COMMAND (TEMPORARY) 
   if(command === "help") { // Check if the command is !help.
       
