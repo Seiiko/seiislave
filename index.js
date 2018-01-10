@@ -126,11 +126,7 @@ client.on("message", async message => { // Message handler event.
     m.edit(`:ping_pong: | Your ping is ${m.createdTimestamp - message.createdTimestamp}ms.`) // Edit the message to show the user's ping.
       
   }
-<<<<<<< HEAD
-
-=======
-  
->>>>>>> 2882e25a67561cb88ea759782670ddbd704f567a
+   
   // HELP COMMAND (TEMPORARY) 
   if(command === "help") { // Check if the command is !help.
       
