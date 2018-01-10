@@ -93,7 +93,7 @@ client.on("message", function(message) {
     //Command for scat.
     if (msg.startsWith(prefix + "IAM SCAT")) { // Check if the command starts with !iam and verify the arguments.    
         
-        if(!message.member.roles.some(r=>["Scat Access"].includes(r.name)) ) {// If the user doesn't have the role already. 
+        if(!message.member.roles.some(r=>["Scat Access"].includes(r.name)) ) { // If the user doesn't have the role already. 
             sender.addRole(scat) // Give the message author the role.
             message.channel.send(":white_check_mark: | You now have access to the **scat** channels.") // Send message to channel.
         } else { // If the user has the role already.
@@ -126,18 +126,6 @@ client.on("message", async message => { // Message handler event.
     m.edit(`:ping_pong: | Your ping is ${m.createdTimestamp - message.createdTimestamp}ms.`) // Edit the message to show the user's ping.
       
   }
-
-  })
-  .catch(err => {
-    if (err.name === 'booruError') {
-      //It's a custom error thrown by the package 
-      console.log(err.message)
-    } else {
-      //This means I messed up. Whoops. 
-      console.log(err)
-    }
-
-  })
 
   // HELP COMMAND (TEMPORARY) 
   if(command === "help") { // Check if the command is !help.
@@ -187,14 +175,14 @@ client.on("message", async message => { // Message handler event.
       return message.reply("You want to fuck someone who doesn't exist? Talk about desperation."); // Send message to channel.
  
     // Fuck the member.
-    if (member.roles.some(r=>["Sei's Slave"].includes(r.name)) && message.member.roles.some(r=>["Kink Goddess"].includes(r.name))) {
-      message.channel.send(`For sure, my sweet Sei... I'm ready for you. We shall do this... privately. ;3`);
-    } else if (member.roles.some(r=>["Sei's Slave"].includes(r.name)) && message.member.roles.some(r=>["Sly Licker"].includes(r.name))) {
-      message.channel.send(`I'll only do it if Sei's a part of it, Sly.`);
-    } else if (member.roles.some(r=>["Sei's Slave"].includes(r.name))) {
-      message.channel.send(`I'm sorry, sweetie, only Sei can fuck me.`);
-    } else {    
-      message.channel.send(`:sweat_drops: | <@!${member.user.id}> and <@!${message.member.id}> are now having some fun. Don't moan too loud!`);
+    if (member.roles.some(r=>["Sei's Slave"].includes(r.name)) && message.member.roles.some(r=>["Kink Goddess"].includes(r.name))) { // If Sei mentions the bot.
+      message.channel.send(`For sure, my sweet Sei... I'm ready for you. We shall do this... privately. ;3`); // Send message to the channel.
+    } else if (member.roles.some(r=>["Sei's Slave"].includes(r.name)) && message.member.roles.some(r=>["Sly Licker"].includes(r.name))) { // If Sly mentions the bot.
+      message.channel.send(`I'll only do it if Sei's a part of it, Sly.`); // Send message to the channel.
+    } else if (member.roles.some(r=>["Sei's Slave"].includes(r.name))) { // If other member mentions the bot.
+      message.channel.send(`I'm sorry, sweetie, only Sei can fuck me.`); // Send message to the channel.
+    } else { // If the bot isn't mentioned.
+      message.channel.send(`:sweat_drops: | <@!${member.user.id}> and <@!${message.member.id}> are now having some fun. Don't moan too loud!`); // Send message to the channel.
     }
 
   }
