@@ -126,12 +126,16 @@ client.on("message", async message => { // Message handler event.
     m.edit(`:ping_pong: | Your ping is ${m.createdTimestamp - message.createdTimestamp}ms.`) // Edit the message to show the user's ping.
       
   }
+<<<<<<< HEAD
 
+=======
+  
+>>>>>>> 2882e25a67561cb88ea759782670ddbd704f567a
   // HELP COMMAND (TEMPORARY) 
   if(command === "help") { // Check if the command is !help.
       
     //Send a message to the channel.
-    message.channel.send("What do you need help with? I offer blowjobs, titjobs, licking, grabbing, vaginal, anal... Just choose! :)")
+    message.channel.send("What do you need help with? I offer blowjobs, titjobs, licking, grabbing, vaginal, anal... Just choose!")
       
   }
   
@@ -167,7 +171,7 @@ client.on("message", async message => { // Message handler event.
   }
     
     // FUCK COMMAND
-  if(command === "fuck") { // Check if the command is !fuck.
+    if(command === "fuck") { // Check if the command is !fuck.
     
     // Check if there the member is valid.
     let member = message.mentions.members.first(); // Define the member variable.
