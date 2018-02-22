@@ -32,6 +32,9 @@
     "discord.js": "^11.2.1",
     "eventemitter3": "^3.0.1",
     "got": "^8.2.0",
+    "random-boobs": "^1.1.0",
+    "random-butt": "^1.0.0",
+    "random-vagina": "^1.0.0",
     "unique-random-array": "^1.0.0"
   }
 }
