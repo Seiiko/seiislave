@@ -29,6 +29,7 @@
   },
   "homepage": "https://github.com/Seiiko/seiislave#readme",
   "dependencies": {
+    "booru": "^0.4.0",
     "discord.js": "^11.2.1",
     "eventemitter3": "^3.0.1",
     "got": "^8.2.0",
