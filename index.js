@@ -2,8 +2,106 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 
+// SETUP THE DEPENDENCIES
+const fs = require("fs");
+
 // DEFINE THE PREFIX
 const prefix = ".";
+
+// SETUP THE COMMANDS COLLECTION
+client.commands = new Discord.Collection();
+
+// READ THE REGULAR COMMANDS FOLDER
+fs.readdir("./cmd/regular", (err, files) => {
+    if(err) console.error(err);
+  
+    // Filter .js files.
+    let jsFiles = files.filter( f => f.split(".").pop() === "js");
+    if(jsFiles.length <= 0) {
+      console.log("No commands to load.");
+      return;
+    }
+  
+    // Load the commands
+    console.log(`Loading ${jsFiles.length} regular commands.`);
+    jsFiles.forEach((f, i) => {
+  
+      let props = require(`./cmd/regular/${f}`);
+      console.log(`${i + 1}: ${f} loaded.`);
+      client.commands.set(props.info.name, props);
+  
+    });
+  
+});
+  
+// READ THE ADMIN COMMANDS FOLDER
+fs.readdir("./cmd/admin", (err, files) => {
+    if(err) console.error(err);
+  
+    // Filter .js files.
+    let jsFiles = files.filter( f => f.split(".").pop() === "js");
+    if(jsFiles.length <= 0) {
+      console.log("No commands to load.");
+      return;
+    }
+  
+    // Load the commands
+    console.log(`Loading ${jsFiles.length} admin commands.`);
+    jsFiles.forEach((f, i) => {
+  
+      let props = require(`./cmd/admin/${f}`);
+      console.log(`${i + 1}: ${f} loaded.`);
+      client.commands.set(props.info.name, props);
+  
+    });
+  
+});
+  
+// READ THE BOT OWNER COMMANDS FOLDER
+fs.readdir("./cmd/owner", (err, files) => {
+    if(err) console.error(err);
+  
+    // Filter .js files.
+    let jsFiles = files.filter( f => f.split(".").pop() === "js");
+    if(jsFiles.length <= 0) {
+      console.log("No commands to load.");
+      return;
+    }
+  
+    // Load the commands
+    console.log(`Loading ${jsFiles.length} bot owner commands.`);
+    jsFiles.forEach((f, i) => {
+  
+      let props = require(`./cmd/owner/${f}`);
+      console.log(`${i + 1}: ${f} loaded.`);
+      client.commands.set(props.info.name, props);
+  
+    });
+  
+});
+  
+// READ THE NSFW COMMANDS FOLDER
+fs.readdir("./cmd/nsfw", (err, files) => {
+    if(err) console.error(err);
+  
+    // Filter .js files.
+    let jsFiles = files.filter( f => f.split(".").pop() === "js");
+    if(jsFiles.length <= 0) {
+      console.log("No commands to load.");
+      return;
+    }
+  
+    // Load the commands
+    console.log(`Loading ${jsFiles.length} NSFW commands.`);
+    jsFiles.forEach((f, i) => {
+  
+      let props = require(`./cmd/nsfw/${f}`);
+      console.log(`${i + 1}: ${f} loaded.`);
+      client.commands.set(props.info.name, props);
+  
+    });
+  
+});
 
 // SET BOT STATUS
 client.on('ready', () => { // When the bot is ready.
