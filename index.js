@@ -107,6 +107,28 @@ fs.readdir("./cmd/nsfw", (err, files) => {
 client.on('ready', () => { // When the bot is ready.
     client.user.setPresence({ game: { name: 'with Sei', type: 0 } }); // Set the bot's status.
 });
+
+// COMMAND HANDLER
+client.on("message", async message => {
+
+    // Ignore other bots, including itself.
+    if(message.author.bot) return;
+   
+    // Ignore messages without prefix.
+    if(message.content.indexOf(prefix) !== 0) return;
+    
+    // Separate the "command" name, and our "arguments" for the command.
+    let raw = message.content.split(/ +/g);
+    let command = raw[0];
+    let args = raw.slice(1);
+ 
+    // Define the command variable.
+    let cmd = client.commands.get(command.slice(prefix.length));
+ 
+    // Check if the command exists.
+    if(cmd) cmd.run(client, message, args);
+ 
+});
     
 // GIVING ROLE ON JOIN
 client.on("guildMemberAdd", member => { // Listener event: user joining the server.
